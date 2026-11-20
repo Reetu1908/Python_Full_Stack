@@ -13,4 +13,10 @@ class Student(models.Model):
     #Template - HTML User Interface
     #URL - connects the browser requests to views
 
+    #these are the orm operations
+    #retrieve the student by name
+    #retrieve only the email
+    #count total students
+    #update the students
     
+
