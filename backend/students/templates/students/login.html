@@ -1,114 +1,107 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Login</title>
+    <title>User Registration</title>
 
     <style>
         body {
-            background: linear-gradient(135deg, #141e30, #243b55);
-            font-family: Arial, sans-serif;
+            font-family: Arial;
+            background: #26292c;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            min-height: 100vh;
         }
 
-        .login-box {
-            background-color: #ffffff;
-            padding: 35px;
-            width: 320px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            text-align: center;
+        .container {
+            background: white;
+            padding: 30px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #aaa;
         }
 
         h2 {
-            color: white;
-            background-color: #6c63ff;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 25px;
+            text-align: center;
         }
 
         label {
-            color: #243b55;
             font-weight: bold;
-            display: block;
-            text-align: left;
-            margin-bottom: 7px;
         }
 
         input {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #d6d9e0;
-            border-radius: 7px;
+            padding: 10px;
+            margin: 8px 0 15px;
             box-sizing: border-box;
-            outline: none;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        input:focus {
-            border-color: #6c63ff;
-            background-color: #f5f4ff;
         }
 
         button {
-            background-color: #6c63ff;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 7px;
-            font-size: 16px;
-            cursor: pointer;
             width: 100%;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background-color: #483dcb;
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            cursor: pointer;
         }
 
         .error {
-            color: #e63946;
-            background-color: #ffe5e5;
-            padding: 10px;
-            border-radius: 5px;
+            color: red;
+        }
+
+        .success {
+            color: green;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="login-box">
+<div class="container">
 
-        <h2>Student Login</h2>
+    <h2>Create Account</h2>
 
-        {% if error %}
+    {% if error %}
         <p class="error">{{ error }}</p>
-        {% endif %}
+    {% endif %}
 
-        <form method="POST">
-            {% csrf_token %}
+    {% if success %}
+        <p class="success">{{ success }}</p>
+    {% endif %}
 
-            <label>Username:</label>
-            <input type="text" name="username"
-                   placeholder="Enter Username" required>
+    <form method="POST">
 
-            <label>Password:</label>
-            <input type="password" name="password"
-                   placeholder="Enter Password" required>
+        {% csrf_token %}
 
-            <button type="submit">Login</button>
+        <label>Username</label>
+        <input type="text"
+               name="username"
+               placeholder="Enter username"
+               required>
 
-        </form>
+        <label>Email</label>
+        <input type="email"
+               name="email"
+               placeholder="Enter email"
+               required>
 
-    </div>
+        <label>Password</label>
+        <input type="password"
+               name="password"
+               placeholder="Enter password"
+               required>
+
+        <label>Confirm Password</label>
+        <input type="password"
+               name="confirm_password"
+               placeholder="Confirm password"
+               required>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+</div>
 
 </body>
 </html>

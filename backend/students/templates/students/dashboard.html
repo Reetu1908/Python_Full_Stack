@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,212 +14,153 @@
         }
 
         body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #dbeafe, #eef2ff);
             min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #1e3a8a;
+            color: white;
+            padding: 20px 40px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            font-family: 'Segoe UI', Arial, sans-serif;
-
-            background:
-                radial-gradient(circle at top left, #3730a3, transparent 40%),
-                radial-gradient(circle at bottom right, #7c2d5c, transparent 40%),
-                #111827;
-
-            overflow: hidden;
         }
 
-        /* Background decorative circles */
-        body::before,
-        body::after {
-            content: "";
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(2px);
-            z-index: -1;
+        .navbar h2 {
+            font-size: 24px;
         }
 
-        body::before {
-            width: 250px;
-            height: 250px;
-            background: rgba(129, 140, 248, 0.2);
-            top: 8%;
-            left: 12%;
+        .navbar span {
+            font-size: 15px;
         }
 
-        body::after {
-            width: 300px;
-            height: 300px;
-            background: rgba(236, 72, 153, 0.15);
-            bottom: 5%;
-            right: 10%;
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
         }
 
-        /* Dashboard Card */
-        .dashboard {
-            width: 400px;
-            padding: 45px 40px;
-            text-align: center;
-
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            border-radius: 22px;
-
-            box-shadow:
-                0 20px 50px rgba(0, 0, 0, 0.4),
-                inset 0 1px 1px rgba(255,255,255,0.1);
-
-            animation: appear 0.8s ease;
-        }
-
-        @keyframes appear {
-            from {
-                opacity: 0;
-                transform: translateY(35px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Dashboard Heading */
-        .dashboard h2 {
-            color: #ffffff;
-            font-size: 30px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-
-        .subtitle {
-            color: #cbd5e1;
-            font-size: 14px;
+        /* Welcome Section */
+        .welcome-box {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px #00000015;
             margin-bottom: 30px;
         }
 
-        /* User Profile */
-        .profile-icon {
-            width: 85px;
-            height: 85px;
-            margin: 0 auto 22px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            border-radius: 50%;
-            background: linear-gradient(135deg, #6366f1, #ec4899);
-
-            color: white;
-            font-size: 35px;
-            font-weight: bold;
-
-            box-shadow: 0 8px 25px rgba(99,102,241,0.4);
+        .welcome-box h1 {
+            color: #1e3a8a;
+            margin-bottom: 12px;
         }
 
-        /* Username Box */
+        .welcome-box p {
+            color: #64748b;
+            font-size: 16px;
+        }
+
         .username {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
+            color: #2563eb;
+        }
 
-            padding: 17px;
-            border-radius: 12px;
+        /* Dashboard Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
 
-            color: #f9a8d4 !important;
-            font-size: 21px !important;
-            font-weight: 600;
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px #00000010;
+            text-align: center;
+        }
 
-            margin-bottom: 30px !important;
-            overflow-wrap: anywhere;
+        .card h3 {
+            color: #1e40af;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #64748b;
         }
 
         /* Logout Button */
-        button {
-            width: 100%;
-            padding: 15px;
-
-            background: linear-gradient(135deg, #6366f1, #9333ea);
+        .logout-btn {
+            background: #ef4444;
             color: white;
-
+            padding: 12px 25px;
             border: none;
-            border-radius: 10px;
-
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-
+            border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s ease;
-
-            box-shadow: 0 6px 18px rgba(99,102,241,0.3);
+            font-size: 15px;
         }
 
-        button:hover {
-            background: linear-gradient(135deg, #4f46e5, #7e22ce);
-            transform: translateY(-3px);
-
-            box-shadow: 0 10px 25px rgba(99,102,241,0.45);
-        }
-
-        button:active {
-            transform: scale(0.97);
+        .logout-btn:hover {
+            background: #dc2626;
         }
 
         /* Footer */
         .footer {
-            color: #94a3b8;
-            font-size: 12px;
-            margin-top: 25px;
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
         }
-
-        /* Mobile Responsive */
-        @media (max-width: 480px) {
-            .dashboard {
-                width: 90%;
-                padding: 35px 25px;
-            }
-
-            .dashboard h2 {
-                font-size: 25px;
-            }
-        }
-
     </style>
 </head>
 
 <body>
 
-    <div class="dashboard">
-
-        <div class="profile-icon">
-            S
-        </div>
-
-        <h2>Welcome!</h2>
-
-        <p class="subtitle">
-            Welcome to your Student Dashboard
-        </p>
-
-        <h2 class="username">
-            {{ user.username }}
-        </h2>
+    <!-- Navbar -->
+    <div class="navbar">
+        <h2>Student Management System</h2>
 
         <form method="POST" action="{% url 'logout' %}">
             {% csrf_token %}
-
-            <button type="submit">
+            <button type="submit" class="logout-btn">
                 Logout
             </button>
         </form>
+    </div>
 
-        <p class="footer">
-            © 2026 Student Portal | All Rights Reserved
-        </p>
+    <!-- Dashboard -->
+    <div class="container">
 
+        <div class="welcome-box">
+            <h1>Welcome, <span class="username">{{ user.username }}</span>!</h1>
+            <p>You have successfully logged into your student dashboard.</p>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="cards">
+
+            <div class="card">
+                <h3>👨‍🎓 Students</h3>
+                <p>Manage student information.</p>
+            </div>
+
+            <div class="card">
+                <h3>📝 Registration</h3>
+                <p>Register new students.</p>
+            </div>
+
+            <div class="card">
+                <h3>📊 Reports</h3>
+                <p>View student reports.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>© 2026 Student Management System | All Rights Reserved</p>
     </div>
 
 </body>
